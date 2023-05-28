@@ -3,8 +3,10 @@ const AvatarHtml = require("./avatarHtml.js");
 
 const IMAGE_WIDTH = 60;
 const IMAGE_HEIGHT = 60;
+const IMAGE_TTL = 1 * 7 * 24 * 60 * 60; // 1 week in seconds
 const FALLBACK_IMAGE_FORMAT = "png";
 
+/** @type {import('@netlify/functions').Handler} */
 async function handler(event, context) {
   // e.g. /https%3A%2F%2Fwww.11ty.dev%2F/
   let pathSplit = event.path.split("/").filter((entry) => !!entry);
@@ -30,6 +32,7 @@ async function handler(event, context) {
       },
       body: stat.buffer.toString("base64"),
       isBase64Encoded: true,
+      ttl: IMAGE_TTL,
     };
   } catch (error) {
     console.log("Error", error);

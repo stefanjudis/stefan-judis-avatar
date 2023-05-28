@@ -1,11 +1,13 @@
-const AvatarHtml = require("./functions/avatar/avatarHtml");
+const AvatarHtml = require("../functions/avatar/avatarHtml");
 
 (async function() {
   // let url = "https://fixa11y.com/"; // svg
   // let url = "https://changelog.com/"; // favicon
   // let url = "https://www.youtube.com/watch?v=eRRkvI-w5Ik";
   // let url = "https://lynnandtonic.com";
-  let url = "https://sarah.dev/";
+  // let url = "https://sarah.dev/";
+  // let url = "https://changelog.com/jsparty/217";
+  let url = "https://stateofjs.com/en-us/";
   console.log( url );
   let avatar = new AvatarHtml(url);
   let html = await avatar.fetch();
